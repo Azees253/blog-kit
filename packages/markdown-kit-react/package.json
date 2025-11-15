@@ -1,5 +1,5 @@
 {
-	"name": "@yourname/markdown-renderer",
+	"name": "@haroonwaves/markdown-kit-react",
 	"version": "0.0.1",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",

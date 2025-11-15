@@ -1,15 +1,17 @@
 {
-	"name": "blog-packages",
-	"version": "1.0.0",
+	"name": "markdown-kit",
+	"version": "0.0.1",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "npm run lint && npm run format:check && npm run type-check && pnpm -r build",
+		"build": "pnpm -r build",
+		"check": "npm run lint && npm run format:check && npm run type-check",
 		"lint": "eslint . --ext .ts,.tsx",
 		"lint:fix": "eslint . --ext .ts,.tsx --fix",
 		"format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
 		"format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
-		"type-check": "pnpm -r type-check"
+		"type-check": "pnpm -r type-check",
+		"publish:packages": "pnpm -r publish --access public"
 	},
 	"keywords": [],
 	"author": "",
