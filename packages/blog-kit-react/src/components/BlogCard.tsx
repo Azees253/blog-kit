@@ -1,5 +1,6 @@
 import React from 'react';
 import type { BlogMeta } from '../types';
+import { Badge } from './Badge';
 
 export interface BlogCardProps {
 	blog: BlogMeta;
@@ -30,11 +31,7 @@ export function BlogCard({
 		>
 			<div className="flex items-center justify-between mb-3">
 				<div className="flex items-center gap-3">
-					{showCategory && blog.category && (
-						<span className="inline-flex items-center rounded-full border border-transparent bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-500">
-							{blog.category}
-						</span>
-					)}
+					{showCategory && blog.category && <Badge>{blog.category}</Badge>}
 					{(showReadingTime || showDate) && (
 						<div className="flex items-center gap-2 text-sm text-gray-500">
 							{showReadingTime && <span>{blog.readingTime}</span>}

@@ -3,16 +3,19 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeRaw from 'rehype-raw';
+import { BlogMeta } from '../types';
 
 import '../prism.css';
+import { Badge } from './Badge';
 
 export interface BlogRendererProps {
 	content: string;
+	metadata: BlogMeta;
 	className?: string;
 	components?: Record<string, React.ComponentType<any>>;
 }
 
-export function BlogRenderer({ content, className = '', components }: BlogRendererProps) {
+export function BlogRenderer({ content, metadata, className = '', components }: BlogRendererProps) {
 	const defaultComponents = {
 		h1: ({ ...props }: any) => (
 			<h1 className="text-4xl font-bold mb-4 mt-8 text-gray-800" {...props} />
@@ -93,14 +96,31 @@ export function BlogRenderer({ content, className = '', components }: BlogRender
 	const mergedComponents = { ...defaultComponents, ...components };
 
 	return (
-		<div className={`prose prose-slate max-w-none ${className}`}>
-			<ReactMarkdown
-				remarkPlugins={[remarkGfm]}
-				rehypePlugins={[rehypeRaw, rehypePrismPlus]}
-				components={mergedComponents}
-			>
-				{content}
-			</ReactMarkdown>
-		</div>
+		<>
+			<div className="flex items-center gap-3 mb-4">
+				{metadata.category && <Badge>{metadata.category}</Badge>}
+				<div className="flex items-center gap-2 text-sm text-gray-500">
+					<span>{metadata.readingTime}</span>
+					<span>•</span>
+					<time dateTime={metadata.date}>
+						{new Date(metadata.date).toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</time>
+				</div>
+			</div>
+
+			<div className={`prose prose-slate max-w-none ${className}`}>
+				<ReactMarkdown
+					remarkPlugins={[remarkGfm]}
+					rehypePlugins={[rehypeRaw, rehypePrismPlus]}
+					components={mergedComponents}
+				>
+					{content}
+				</ReactMarkdown>
+			</div>
+		</>
 	);
 }
