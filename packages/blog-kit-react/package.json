@@ -1,6 +1,6 @@
 {
 	"name": "@haroonwaves/blog-kit-react",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
@@ -9,6 +9,15 @@
 	"files": [
 		"dist"
 	],
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"default": "./dist/index.mjs"
+		},
+		"./styles.css": "./dist/styles.css",
+		"./index.css": "./dist/index.css"
+	},
 	"scripts": {
 		"build:css": "pnpm exec tailwindcss -i ./src/tailwind.css -o ./dist/style.css --minify",
 		"build": "pnpm build:css && tsup src/index.ts --format cjs,esm --dts --external react --external react-dom",

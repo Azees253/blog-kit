@@ -716,8 +716,8 @@ The package also includes Prism.js CSS for syntax highlighting and Tailwind CSS 
 styling. Import it in your app:
 
 ```tsx
-import '@haroonwaves/blog-kit-react/dist/index.css';
-import '@haroonwaves/blog-kit-react/dist/styles.css';
+import '@haroonwaves/blog-kit-react/index.css'; // For Prism styles
+import '@haroonwaves/blog-kit-react/styles.css'; // For Component styles
 ```
 
 Or if you're using a bundler that supports CSS imports (Ex: Vite), it will be included
