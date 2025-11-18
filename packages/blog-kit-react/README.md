@@ -35,4 +35,4 @@ For complete documentation, API reference, and examples, please visit the
 
 ## License
 
-ISC
+[LICENSE](/LICENSE)

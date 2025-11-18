@@ -1,6 +1,6 @@
 {
 	"name": "blog-kit",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"private": true,
 	"description": "Toolkit for building blog systems with markdown.",
 	"main": "index.js",
@@ -15,9 +15,17 @@
 		"version:bump": "pnpm version patch --recursive --no-git-tag-version",
 		"publish:packages": "pnpm -r publish --access public"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
+	"keywords": [
+		"blog",
+		"markdown",
+		"react",
+		"nextjs",
+		"blog-engine",
+		"ssg",
+		"blog-kit"
+	],
+	"author": "Haroon (https://github.com/haroonwaves)",
+	"license": "MIT",
 	"packageManager": "pnpm@10.18.3",
 	"devDependencies": {
 		"@types/node": "^20.14.0",

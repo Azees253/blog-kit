@@ -1,6 +1,6 @@
 {
 	"name": "@haroonwaves/blog-kit-core",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
@@ -8,6 +8,17 @@
 	"files": [
 		"dist"
 	],
+	"keywords": [
+		"blog",
+		"markdown",
+		"react",
+		"nextjs",
+		"blog-engine",
+		"ssg",
+		"blog-kit"
+	],
+	"author": "Haroon (https://github.com/haroonwaves)",
+	"license": "MIT",
 	"scripts": {
 		"build": "tsup src/index.ts --format cjs,esm --dts",
 		"type-check": "tsc --noEmit"
