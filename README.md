@@ -3,6 +3,10 @@
 A powerful toolkit for building blog systems with markdown. Consists of two packages: a core library
 for parsing markdown blog files and a React component library for rendering blog UIs.
 
+## Live Demo
+
+[haroonwaves.github.io/blog](https://haroonwaves.github.io/blog) A full blog built using Blog Kit.
+
 ## Table of Contents
 
 - [Packages](#packages)
@@ -744,11 +748,9 @@ pnpm lint
 pnpm format
 ```
 
-For more information about publishing packages, see [PUBLISHING.md](./PUBLISHING.md).
-
 ## License
 
-ISC
+[LICENSE](/LICENSE)
 
 ## Contributing
 
