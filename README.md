@@ -87,11 +87,11 @@ import { BlogRenderer } from '@haroonwaves/blog-kit-react';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-	const blogs = getAllBlogsMeta({
+	const blogsMeta = getAllBlogsMeta({
 		contentDirectory: process.cwd(),
 		blogSubdirectory: 'content/blog',
 	});
-	return blogs.map((blog) => ({ slug: blog.slug }));
+	return blogsMeta.map((meta) => ({ slug: meta.slug }));
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -135,7 +135,7 @@ const config = {
 };
 
 // Get all blog metadata
-const blogs = getAllBlogsMeta(config);
+const blogsMeta = getAllBlogsMeta(config);
 
 // Get a specific blog post
 const blog = getBlog('my-blog-post', config);
@@ -387,9 +387,9 @@ const blogConfig = {
 };
 
 export async function generateStaticParams() {
-	const blogs = getAllBlogsMeta(blogConfig);
-	return blogs.map((blog) => ({
-		slug: blog.slug,
+	const blogsMeta = getAllBlogsMeta(blogConfig);
+	return blogsMeta.map((meta) => ({
+		slug: meta.slug,
 	}));
 }
 
@@ -574,14 +574,14 @@ Returns an array of all blog metadata sorted by date (newest first). Requires No
 **Example:**
 
 ```typescript
-const blogs = getAllBlogsMeta({
+const blogsMeta = getAllBlogsMeta({
 	contentDirectory: './content',
 	blogSubdirectory: 'posts', // optional
 });
 
 // blogs is an array of BlogMeta objects
-blogs.forEach((blog) => {
-	console.log(blog.title, blog.slug, blog.readingTime);
+blogsMeta.forEach((meta) => {
+	console.log(meta.title, meta.slug, meta.readingTime);
 });
 ```
 
