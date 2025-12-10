@@ -94,8 +94,10 @@ export async function generateStaticParams() {
 	return blogsMeta.map((meta) => ({ slug: meta.slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-	const blog = getBlog(params.slug, {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+	const { slug } = await params;
+
+	const blog = getBlog(slug, {
 		contentDirectory: process.cwd(),
 		blogSubdirectory: 'content/blog',
 	});
@@ -418,8 +420,10 @@ export async function generateMetadata({
 	};
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-	const blog = getBlog(params.slug, blogConfig);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+	const { slug } = await params;
+
+	const blog = getBlog(slug, blogConfig);
 
 	if (!blog) notFound();
 
@@ -465,8 +469,10 @@ import { getBlog } from '@haroonwaves/blog-kit-core';
 import { BlogRenderer } from '@haroonwaves/blog-kit-react';
 import { notFound } from 'next/navigation';
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-	const blog = getBlog(params.slug, {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+	const { slug } = await params;
+
+	const blog = getBlog(slug, {
 		contentDirectory: process.cwd(),
 		blogSubdirectory: 'content/blog',
 	});
