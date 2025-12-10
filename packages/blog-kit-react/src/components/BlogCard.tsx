@@ -61,7 +61,7 @@ export function BlogCard({
 
 			{Link(
 				href,
-				<span className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 font-medium text-sm">
+				<span className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm">
 					Read more →
 				</span>
 			)}
