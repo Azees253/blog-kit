@@ -11,12 +11,12 @@ for parsing markdown blog files and a React component library for rendering blog
 
 - [Packages](#packages)
 - [Installation](#installation)
+- [Styling](#styling)
 - [Quick Start](#quick-start)
 - [Core Package](#core-package)
 - [React Package](#react-package)
 - [API Reference](#api-reference)
 - [Features](#features)
-- [Styling](#styling)
 - [Development](#development)
 - [License](#license)
 - [Contributing](#contributing)
@@ -51,6 +51,19 @@ yarn add @haroonwaves/blog-kit-react
 ```
 
 **Note:** The React package requires React 18+ as a peer dependency.
+
+## Styling
+
+The package also includes Prism.js CSS for syntax highlighting and Tailwind CSS for component
+styling. Import it in your app:
+
+```tsx
+import '@haroonwaves/blog-kit-react/dist/index.css'; // For Prism styles
+import '@haroonwaves/blog-kit-react/dist/style.css'; // For Component styles
+```
+
+Or if you're using a bundler that supports CSS imports example Vite - it will be included
+automatically. Nextjs doesn't support auto css imports
 
 ## Quick Start
 
@@ -719,19 +732,6 @@ interface BlogConfig {
 - ✅ Customizable styling with Tailwind CSS classes
 - ✅ TypeScript support with full type definitions
 - ✅ Works with any routing library (Next.js, Remix, etc.)
-
-## Styling
-
-The package also includes Prism.js CSS for syntax highlighting and Tailwind CSS for component
-styling. Import it in your app:
-
-```tsx
-import '@haroonwaves/blog-kit-react/dist/index.css'; // For Prism styles
-import '@haroonwaves/blog-kit-react/dist/style.css'; // For Component styles
-```
-
-Or if you're using a bundler that supports CSS imports example Vite - it will be included
-automatically. Nextjs doesn't support auto css imports
 
 ## Development
 

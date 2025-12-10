@@ -7,7 +7,7 @@ export interface BlogListProps {
 	renderLink?: BlogCardProps['renderLink'];
 	className?: string;
 	emptyMessage?: string;
-	cardProps?: Omit<BlogCardProps, 'blog' | 'basePath' | 'renderLink'>;
+	cardProps?: Omit<BlogCardProps, 'metadata' | 'basePath' | 'renderLink'>;
 }
 
 export function BlogList({

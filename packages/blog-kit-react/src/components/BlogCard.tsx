@@ -27,7 +27,7 @@ export function BlogCard({
 
 	return (
 		<article
-			className={`bg-white rounded-lg border border-gray-200 hover:border-gray-300 p-6 transition-colors ${className}`}
+			className={`rounded-lg border border-gray-200 hover:border-gray-300 p-6 transition-colors ${className}`}
 		>
 			<div className="flex items-center justify-between mb-3">
 				<div className="flex items-center gap-3">
