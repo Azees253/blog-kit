@@ -47,7 +47,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 	return (
 		<article className="space-y-8">
-			<BlogRenderer content={blog.content} metadata={blog.metadata} />
+			<BlogRenderer
+				content={blog.content}
+				metadata={blog.metadata}
+				showDate={false}
+				showReadingTime={false}
+				showCategory={false}
+			/>
 		</article>
 	);
 }

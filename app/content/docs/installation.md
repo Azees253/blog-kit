@@ -4,13 +4,13 @@ description: How to install Blog Kit packages
 date: 2024-01-02
 ---
 
-# Installation
+## Installation
 
 Get started with Blog Kit by installing the packages you need. Choose between the core package for
 markdown parsing utilities or the React package for pre-built UI components. Both packages are
 available on npm and support all major package managers.
 
-## Core Package
+### Core Package
 
 ```bash
 npm install @haroonwaves/blog-kit-core
@@ -20,7 +20,7 @@ pnpm add @haroonwaves/blog-kit-core
 yarn add @haroonwaves/blog-kit-core
 ```
 
-## React Package
+### React Package
 
 ```bash
 npm install @haroonwaves/blog-kit-react
@@ -32,7 +32,7 @@ yarn add @haroonwaves/blog-kit-react
 
 **Note:** The React package requires React 18+ as a peer dependency.
 
-## Styling
+### Styling
 
 The package also includes Prism.js CSS for syntax highlighting and Tailwind CSS for component
 styling. Import it in your app:

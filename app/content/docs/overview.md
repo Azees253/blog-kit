@@ -4,13 +4,13 @@ description: A powerful toolkit for building blog systems with markdown
 date: 2024-01-01
 ---
 
-# Blog Kit
+## Blog Kit
 
 Blog Kit is a modern, TypeScript-first toolkit designed to simplify building blog systems with
 markdown. Whether you're creating a personal blog, documentation site, or content platform, Blog Kit
 provides the essential tools you need with minimal configuration.
 
-## Why Blog Kit?
+### Why Blog Kit?
 
 Building a blog from scratch means dealing with markdown parsing, frontmatter extraction, reading
 time calculations, syntax highlighting, and responsive UI components. Blog Kit handles all of this
@@ -22,9 +22,9 @@ for you with:
 - **Production Ready** - Battle-tested components with dark mode support
 - **Developer Friendly** - Simple API, comprehensive docs, and great DX
 
-## Key Features
+### Key Features
 
-### Core Package
+#### Core Package
 
 - ✅ Parse markdown files with frontmatter (using
   [gray-matter](https://github.com/jonschlinkert/gray-matter))
@@ -35,7 +35,7 @@ for you with:
 - ✅ TypeScript support with full type definitions
 - ✅ Zero dependencies on React or UI frameworks
 
-### React Package
+#### React Package
 
 - ✅ Beautiful, customizable markdown rendering
 - ✅ Syntax highlighting for code blocks (Prism.js)
@@ -47,7 +47,7 @@ for you with:
 - ✅ TypeScript support with full type definitions
 - ✅ Works with any routing library (Next.js, Remix, etc.)
 
-## Use Cases
+### Use Cases
 
 Blog Kit is perfect for:
 
@@ -58,18 +58,18 @@ Blog Kit is perfect for:
 - **Technical Blogs** - Write about code with syntax highlighting
 - **Company Blogs** - Professional blog systems with minimal setup
 
-## Packages
+### Packages
 
 - **[@haroonwaves/blog-kit-core](https://www.npmjs.com/package/@haroonwaves/blog-kit-core)** - Core
   utilities for parsing markdown blog files with frontmatter
 - **[@haroonwaves/blog-kit-react](https://www.npmjs.com/package/@haroonwaves/blog-kit-react)** -
   React components and hooks for rendering blogs
 
-## Live Demo
+### Live Demo
 
 [haroonwaves.github.io/blog](https://haroonwaves.github.io/blog) - A full blog built using Blog Kit.
 
-## Getting Started
+### Getting Started
 
 Ready to build your blog? Get started in minutes:
 

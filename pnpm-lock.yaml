@@ -48,11 +48,11 @@ importers:
   app:
     dependencies:
       '@haroonwaves/blog-kit-core':
-        specifier: ^1.0.7
-        version: 1.0.7
+        specifier: ^1.0.8
+        version: 1.0.8
       '@haroonwaves/blog-kit-react':
-        specifier: ^1.0.7
-        version: 1.0.7(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        specifier: ^1.0.8
+        version: 1.0.8(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       '@radix-ui/react-slot':
         specifier: ^1.2.4
         version: 1.2.4(@types/react@19.2.7)(react@19.2.1)
@@ -321,11 +321,11 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@haroonwaves/blog-kit-core@1.0.7':
-    resolution: {integrity: sha512-ee97MSIhMpcJFkir/3hCkl0ymUAId0drZ/2YrTDxlkf3rzqvfFrUqy4GK0YCvE8Kw6+gB4Ci8tsEvWluFKR1dg==}
+  '@haroonwaves/blog-kit-core@1.0.8':
+    resolution: {integrity: sha512-AHbEksoHIwIcnGX//WFNapOCh3zKG9dtIOC60k/vctYVoQ9ozg4yePtsmVF7dTlaB0m65ULQb0j6rsHWlaIdxQ==}
 
-  '@haroonwaves/blog-kit-react@1.0.7':
-    resolution: {integrity: sha512-Scnfim0aZliAn8Z3S0ZZDy5rTXmtpU6pLouAKzQJkSYlra/rWmPSIw0bRe85U1DZAiyTizn4mPgsVjtln02gRA==}
+  '@haroonwaves/blog-kit-react@1.0.8':
+    resolution: {integrity: sha512-Z3bhqEn5LcOsweOi0C7FDMb2YFHlFyTGdWXU4GnPeSSiSJfZvgd4UhA0xG7bIjRTVFelFKyB7kglbUKR1BKHdg==}
     peerDependencies:
       react: '>=19'
       react-dom: '>=19'
@@ -2826,12 +2826,12 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@haroonwaves/blog-kit-core@1.0.7':
+  '@haroonwaves/blog-kit-core@1.0.8':
     dependencies:
       gray-matter: 4.0.3
       reading-time: 1.5.0
 
-  '@haroonwaves/blog-kit-react@1.0.7(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
+  '@haroonwaves/blog-kit-react@1.0.8(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
     dependencies:
       prismjs: 1.30.0
       react: 19.2.1

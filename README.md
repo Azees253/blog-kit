@@ -29,10 +29,45 @@ pnpm lint
 pnpm format
 ```
 
+# Contributing
+
+Fork the Project
+
+## Branching Strategy
+
+- Feature branches: `feature/*`
+  ```bash
+  git checkout -b feature/YOUR-BRANCH-NAME
+  ```
+- Bug fix branches: `fix/*`
+  ```bash
+  git checkout -b fix/YOUR-BRANCH-NAME
+  ```
+
+## Commit Message Format
+
+All commits MUST follow this format:
+
+```
+<gitmoji> type: subject
+
+[optional body]
+```
+
+### Examples
+
+```bash
+✨ feat: add dark-mode support
+🐛 fix: resolve markdown parsing issue
+📝 docs: update react component library documentation
+```
+
+## Development Workflow
+
+1. Create your Feature Branch `git checkout -b feature/YOUR-BRANCH-NAME` from the `main` branch
+2. Push to the Branch `git push origin feature/YOUR-BRANCH-NAME`
+3. Open a Pull Request against the `main` branch
+
 ## License
 
 [LICENSE](/LICENSE)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
