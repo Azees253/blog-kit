@@ -5,7 +5,7 @@ for parsing markdown blog files and a React component library for rendering blog
 
 ## Documentation
 
-[blogkit.pages.dev](https://blogkit.pages.dev) - A full documentation of Blog Kit built with Blog
+[blog-kit.pages.dev](https://blog-kit.pages.dev) - A full documentation of Blog Kit built with Blog
 Kit.
 
 ## Development

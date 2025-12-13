@@ -13,9 +13,20 @@ export interface BlogRendererProps {
 	metadata: BlogMeta;
 	className?: string;
 	components?: Record<string, React.ComponentType<any>>;
+	showCategory?: boolean;
+	showReadingTime?: boolean;
+	showDate?: boolean;
 }
 
-export function BlogRenderer({ content, metadata, className = '', components }: BlogRendererProps) {
+export function BlogRenderer({
+	content,
+	metadata,
+	className = '',
+	components,
+	showCategory = true,
+	showReadingTime = true,
+	showDate = true,
+}: BlogRendererProps) {
 	const defaultComponents = {
 		h1: ({ ...props }: any) => (
 			<h1
@@ -140,20 +151,28 @@ export function BlogRenderer({ content, metadata, className = '', components }: 
 
 	return (
 		<>
-			<div className="flex items-center gap-3 mb-4">
-				{metadata.category && <Badge>{metadata.category}</Badge>}
-				<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-					<span>{metadata.readingTime}</span>
-					<span>•</span>
-					<time dateTime={metadata.date}>
-						{new Date(metadata.date).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
-					</time>
-				</div>
-			</div>
+			{showCategory ||
+				showReadingTime ||
+				(showDate && (
+					<div className="flex items-center gap-3 mb-4">
+						{showCategory && metadata.category && <Badge>{metadata.category}</Badge>}
+						{(showReadingTime || showDate) && (
+							<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+								{showReadingTime && <span>{metadata.readingTime}</span>}
+								{showReadingTime && showDate && <span>•</span>}
+								{showDate && (
+									<time dateTime={metadata.date}>
+										{new Date(metadata.date).toLocaleDateString('en-US', {
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric',
+										})}
+									</time>
+								)}
+							</div>
+						)}
+					</div>
+				))}
 
 			<div className={`prose prose-slate dark:prose-invert max-w-none ${className}`}>
 				<ReactMarkdown

@@ -1,4 +1,4 @@
-import { BlogCard, BlogCardProps } from './BlogCard';
+import { BlogCard, type BlogCardProps } from './BlogCard';
 import type { BlogMeta } from '../types';
 
 export interface BlogListProps {

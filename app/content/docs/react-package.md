@@ -18,7 +18,7 @@ Render markdown content with syntax highlighting and beautiful styling:
 import { BlogRenderer } from '@haroonwaves/blog-kit-react';
 
 function BlogPost({ content }) {
-	return <BlogRenderer content={content} />;
+	return <BlogRenderer content={content} metadata={metadata} />;
 }
 ```
 
@@ -28,6 +28,9 @@ function BlogPost({ content }) {
 - `metadata` (BlogMeta, required): Blog meta info to render
 - `className` (string, optional): Additional CSS classes
 - `components` (object, optional): Custom component overrides
+- `showCategory` (boolean, optional): Show category badge (default: true)
+- `showReadingTime` (boolean, optional): Show reading time (default: true)
+- `showDate` (boolean, optional): Show publication date (default: true)
 
 ### BlogCard
 
@@ -36,22 +39,14 @@ Display a single blog post card:
 ```tsx
 import { BlogCard } from '@haroonwaves/blog-kit-react';
 
-function BlogCardExample({ blog }) {
-	return (
-		<BlogCard
-			blog={blog}
-			basePath="/blog"
-			showCategory={true}
-			showReadingTime={true}
-			showDate={true}
-		/>
-	);
+function BlogCardExample({ blogMeta }) {
+	return <BlogCard metadata={blogMeta} basePath="/blog" />;
 }
 ```
 
 **Props:**
 
-- `blog` (BlogMeta, required): Blog metadata object
+- `metadata` (BlogMeta, required): Blog metadata object
 - `basePath` (string, optional): Base path for blog links (default: '/blog')
 - `renderLink` (function, optional): Custom link renderer (useful for Next.js Link)
 - `className` (string, optional): Additional CSS classes
@@ -206,18 +201,14 @@ const blogConfig = {
 	blogSubdirectory: 'content/blog',
 };
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
 	const blogsMeta = getAllBlogsMeta(blogConfig);
 	return blogsMeta.map((meta) => ({
 		slug: meta.slug,
 	}));
 }
 
-export async function generateMetadata({
-	params,
-}: {
-	params: { slug: string };
-}): Promise<Metadata> {
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
 	const blog = getBlog(params.slug, blogConfig);
 
 	if (!blog) {
@@ -248,31 +239,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 	const { metadata, content } = blog;
 
 	return (
-		<div className="min-h-screen bg-gray-50">
-			<div className="max-w-7xl mx-auto px-4 py-12">
-				<Link
-					href="/blog"
-					className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8"
-				>
-					← Back to blog
-				</Link>
-
-				<article className="bg-white rounded-lg border border-gray-200 p-8">
-					<h1 className="text-4xl font-bold mb-4">{metadata.title}</h1>
-					<div className="flex items-center gap-3 mb-6 text-sm text-gray-500">
-						{metadata.category && (
-							<span className="px-2 py-1 bg-orange-100 text-orange-500 rounded">
-								{metadata.category}
-							</span>
-						)}
-						<span>{blog.readingTime}</span>
-						<span>•</span>
-						<time dateTime={metadata.date}>{new Date(metadata.date).toLocaleDateString()}</time>
-					</div>
-					<BlogRenderer content={content} />
-				</article>
-			</div>
-		</div>
+		<article>
+			<BlogRenderer content={content} metadata={metadata} />
+		</article>
 	);
 }
 ```
@@ -299,8 +268,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 	return (
 		<article>
-			<h1>{blog.metadata.title}</h1>
-			<BlogRenderer content={blog.content} />
+			<BlogRenderer content={blog.content} metadata={blog.metadata} />
 		</article>
 	);
 }
@@ -335,7 +303,7 @@ async function fetchAllBlogs(): Promise<BlogMeta[]> {
 
 function BlogPage() {
 	const [blogsMeta, setBlogsMeta] = useState<BlogMeta[]>([]);
-	const { metadata, searchTerm, setSearchTerm } = useBlogs(blogs);
+	const { metadata, searchTerm, setSearchTerm } = useBlogs(blogsMeta);
 
 	useEffect(() => {
 		fetchAllBlogs().then(setBlogsMeta);
@@ -370,8 +338,6 @@ function BlogPostPage({ slug }: { slug: string }) {
 
 	return (
 		<article>
-			<h1>{blog.metadata.title}</h1>
-			<p>{blog.metadata.description}</p>
 			<BlogRenderer content={blog.content} metadata={blog.metadata} />
 		</article>
 	);

@@ -29,26 +29,30 @@ export function BlogCard({
 		<article
 			className={`rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 p-6 transition-colors ${className}`}
 		>
-			<div className="flex items-center justify-between mb-3">
-				<div className="flex items-center gap-3">
-					{showCategory && metadata.category && <Badge>{metadata.category}</Badge>}
-					{(showReadingTime || showDate) && (
-						<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-							{showReadingTime && <span>{metadata.readingTime}</span>}
-							{showReadingTime && showDate && <span>•</span>}
-							{showDate && (
-								<time dateTime={metadata.date}>
-									{new Date(metadata.date).toLocaleDateString('en-US', {
-										year: 'numeric',
-										month: 'long',
-										day: 'numeric',
-									})}
-								</time>
+			{showCategory ||
+				showReadingTime ||
+				(showDate && (
+					<div className="flex items-center justify-between mb-3">
+						<div className="flex items-center gap-3">
+							{showCategory && metadata.category && <Badge>{metadata.category}</Badge>}
+							{(showReadingTime || showDate) && (
+								<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+									{showReadingTime && <span>{metadata.readingTime}</span>}
+									{showReadingTime && showDate && <span>•</span>}
+									{showDate && (
+										<time dateTime={metadata.date}>
+											{new Date(metadata.date).toLocaleDateString('en-US', {
+												year: 'numeric',
+												month: 'long',
+												day: 'numeric',
+											})}
+										</time>
+									)}
+								</div>
 							)}
 						</div>
-					)}
-				</div>
-			</div>
+					</div>
+				))}
 
 			{Link(
 				href,
