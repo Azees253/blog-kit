@@ -11,8 +11,14 @@ export function generateStaticParams() {
 	return blogsMeta.map((meta) => ({ slug: meta.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-	const blog = getBlog(params.slug, {
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+	const { slug } = await params;
+
+	const blog = getBlog(slug, {
 		contentDirectory: './content',
 		blogSubdirectory: 'docs',
 	});

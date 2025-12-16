@@ -30,7 +30,7 @@ pnpm add @haroonwaves/blog-kit-react
 yarn add @haroonwaves/blog-kit-react
 ```
 
-**Note:** The React package requires React 18+ as a peer dependency.
+**Note:** The React package requires React 19+ as a peer dependency.
 
 ### Styling
 

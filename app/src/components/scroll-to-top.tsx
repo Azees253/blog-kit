@@ -19,7 +19,7 @@ export function ScrollToTop() {
 
 		if (typeof window !== 'undefined') {
 			(window as Window).addEventListener('scroll', toggleVisibility);
-			return () => (window as Window).removeEventListener('scroll', toggleVisibility) as void;
+			return () => window.removeEventListener('scroll', toggleVisibility);
 		}
 	}, []);
 

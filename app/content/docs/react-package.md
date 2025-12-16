@@ -22,6 +22,30 @@ function BlogPost({ content }) {
 }
 ```
 
+#### Customizing Components
+
+You can override any default component by passing custom components through the `components` prop:
+
+```tsx
+import { BlogRenderer } from '@haroonwaves/blog-kit-react';
+import type { ComponentProps } from 'react';
+
+function BlogPost({ content, metadata }) {
+	// Custom component overrides
+	const customComponents = {
+		// Custom blockquote with a different style
+		blockquote: (props: ComponentProps<'blockquote'>) => (
+			<blockquote
+				className="my-6 border-l-4 border-purple-500 bg-purple-50 dark:bg-purple-950 p-4 rounded-r-lg italic"
+				{...props}
+			/>
+		),
+	};
+
+	return <BlogRenderer content={content} metadata={metadata} components={customComponents} />;
+}
+```
+
 **Props:**
 
 - `content` (string, required): Blog content to render
@@ -208,8 +232,14 @@ export function generateStaticParams() {
 	}));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-	const blog = getBlog(params.slug, blogConfig);
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+	const { slug } = await params;
+
+	const blog = getBlog(slug, blogConfig);
 
 	if (!blog) {
 		return {
@@ -218,7 +248,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 	}
 
 	return {
-		title: blog.metadata.title,
+		title: `${blog.metadata.title} | Blog Kit`,
 		description: blog.metadata.description,
 		openGraph: {
 			title: blog.metadata.title,
